@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./Weather.css"
 
@@ -8,15 +9,17 @@ const [weathwerData, setWeathwerData] = useState({ready:false});
 
 
     function handleResponse(response) {
+        
 setWeathwerData({
     ready: true,
     temperature: Math.round(response.data.main.temp),
     wind: response.data.wind.speed,
     city: response.data.name,
+    date: new Date(response.data.dt * 10000),
     humidity: response.data.main.humidity,
     description: response.data.weather[0].description,
     iconUrl: "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png",
-    date: "Wednesday 07:00",
+   
    
 
 
@@ -24,6 +27,7 @@ setWeathwerData({
 
 
 }
+
 
 if(weathwerData.ready){
     return(
@@ -42,7 +46,7 @@ if(weathwerData.ready){
                {weathwerData.city}
                 </h1>
                 <ul>
-                    <li>{weathwerData.date}</li>
+                    <li><FormattedDate date = {weathwerData.date} /></li>
                     <li className="text-capitalize">{weathwerData.description}</li>
                 </ul>
                 <div className="row mt-3">
