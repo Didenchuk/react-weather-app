@@ -10,7 +10,7 @@ const [city, setCity] = useState(props.defaultCity)
 
 
     function handleResponse(response) {
-        console.log(response.data)
+        
         
 setWeathwerData({
     ready: true,

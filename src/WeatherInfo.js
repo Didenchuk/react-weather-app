@@ -21,7 +21,7 @@ export default function WeatherInfo (props){
                 </div>
             
            <div className="float-start">
-            <span className="temperature">{props.data.temperature}</span> <span className="unit">°C </span>
+         <span className="temperature">{props.data.temperature}</span> <span className="unit">°C </span>
             </div>
             </div>
          </div>
